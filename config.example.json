@@ -13,6 +13,6 @@
     "udp://tracker.torrent.eu.org:451/announce",
     "udp://tracker.tiny-vps.com:6969/announce",
     "udp://exodus.desync.com:6969/announce",
-    "udp://tracker.openbittorrent.com:6969/announce",
+    "udp://tracker.openbittorrent.com:6969/announce"
   ]
 }

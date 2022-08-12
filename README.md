@@ -5,3 +5,7 @@ Script to autodownload Abitti releases and turn them into torrents. Shares a tor
 ## Setup
 
 Figure it out yourself, config example is pretty self explanatory.
+
+### Docker
+
+Good luck lol-
