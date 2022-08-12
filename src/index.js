@@ -21,17 +21,19 @@ const qbit = new qBittorrent({
 });
 
 let oldData = JSON.parse(await readFile("./old.json", "utf-8").catch(() => "[]"));
+let latestVersion = Math.max(...oldData.map(e => parseInt(e.versionName.substr(6, 4), 10)));
 
 async function getData() {
   const { koe: data } = await fetch("https://abitikku-versions.testausserveri.fi/versions.json").then(r => r.json()).catch(() => null) ?? {};
   if (!data) return [];
-  const newData = data.filter(v1 => !v1.beta && oldData.every(v2 => v2.versionCode !== v1.versionCode));
+  const newData = data.filter(v1 => !v1.beta && parseInt(v1.versionName.substr(6, 4), 10) > latestVersion && oldData.every(v2 => v2.versionCode !== v1.versionCode));
   await writeFile("./old.json", JSON.stringify(data), "utf-8");
   if (oldData.length !== 0) {
     oldData = data;
     return newData;
   }
   oldData = data;
+  latestVersion = Math.max(...oldData.map(e => parseInt(e.versionName.substr(6, 4), 10)));
 }
 
 async function download(url, dest) {
