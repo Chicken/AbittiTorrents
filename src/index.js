@@ -57,6 +57,7 @@ async function checkReleases() {
       const torrent = await createTorrent(path, {
         name: `${release.versionName}.zip`,
         announceList: [config.trackers],
+        urlList: [release.url],
       });
       await qbit.addTorrent(torrent, config.qbit.category);
       console.log(`Seeding ${release.versionName}`);
