@@ -68,12 +68,14 @@ async function checkReleases() {
           attachment: torrent,
           name: `${release.versionName}.torrent`
         }],
+        threadId: config.threadId,
       });
     } catch(e) {
       console.error(e);
       webhook.send({
         username: "Abitti Torrents",
         content: `Failed to share ${release.versionName}`,
+        threadId: config.threadId,
       }).catch(() => null);
     }
   }));

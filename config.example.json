@@ -1,5 +1,6 @@
 {
   "webhook": "https://discord.com/api/webhooks/2875207507352/gagnhjalwiuhgnbliwhighnsxijughnlsajhnb",
+  "threadId": null,
   "dest": "/downloads/",
   "qbit": {
     "host": "http://localhost:8080",
